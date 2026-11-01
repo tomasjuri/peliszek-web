@@ -1,0 +1,21 @@
+# PRO DĚTI
+# Modrá sekce „pro malé.“
+#
+# Řádky s mřížkou na začátku jsou poznámky, na webu se neukážou.
+# Jak soubory upravovat, je v NAVOD.txt.
+
+nadpis: pro malé.
+text: dětská káva? jasně. v hrnečku, jako mají rodiče.
+
+# Každá položka má dva řádky:
+#   položka:  název (napíše se tučně)
+#   popis:    text za ním
+
+položka: babyccino
+popis: našlehané mléko s kakaem a marshmallow, bez kávy.
+
+položka: malé porce
+popis: dětské kakao a brunch v dětské velikosti.
+
+položka: hernička
+popis: hrací koutek na dohled od stolu, na brunchových akcích v ceně.

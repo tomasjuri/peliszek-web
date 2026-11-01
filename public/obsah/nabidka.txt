@@ -1,0 +1,66 @@
+# NABÍDKA
+# Sekce „co u nás dobrého.“ Má dva sloupce: vlevo pečení, vpravo káva a matcha.
+# (Na mobilu jsou pod sebou.)
+#
+# Řádky s mřížkou na začátku jsou poznámky, na webu se neukážou.
+# Jak soubory upravovat, je v NAVOD.txt.
+
+nadpis: co u nás dobrého.
+text: Kafe? Máme. Matchu? Máme. Buchtu od Žanet? Taky.
+
+
+# ---------- LEVÝ SLOUPEC: pečení ----------
+
+pečení nadpis: pečeme sami
+pečení text: Většinu sladkého peče naše Žanet, každý den trochu něco jiného. Dorty na zakázku dělá pečeTe, perníčky Cukrová víla.
+
+# Co bývá na pultu. Každá položka má dva řádky:
+#   pečivo:  co to je
+#   kdo:     kdo to peče (zobrazí se vpravo)
+
+pečivo: skořicoví šneci
+kdo: Žanet
+
+pečivo: švestkový koláč s drobenkou
+kdo: Žanet
+
+pečivo: mrkvový dort
+kdo: Žanet
+
+pečivo: dortíky a zákusky
+kdo: pečeTe
+
+pečivo: perníčky
+kdo: Cukrová víla
+
+
+# ---------- PRAVÝ SLOUPEC: káva a matcha ----------
+
+káva nadpis: káva a matcha
+
+# Co se dá vypít na místě (za tučným „na baru:“).
+na baru: espresso, cappuccino, flat white, filtr na V60, matcha latte, čistá matcha a chai latte.
+
+# Káva a matcha na prodej domů. Každá položka má tři řádky:
+#   na prodej:  název
+#   popis:      menší text pod názvem (může chybět)
+#   cena:       zobrazí se vpravo
+
+na prodej: etiopie guji
+popis: filtr; jahoda, bergamot, med
+cena: 360 Kč
+
+na prodej: kolumbie huila
+popis: espresso i filtr; karamel, jablko, kakao
+cena: 340 Kč
+
+na prodej: brazílie cerrado
+popis: espresso; čokoláda, lískový oříšek
+cena: 290 Kč
+
+na prodej: ceremoniální matcha
+popis: Japonsko, 30 g
+cena: 590 Kč
+
+# Drobný text pod seznamem.
+poznámka: Kávu prodáváme po 250 g. Balíček vám rádi podržíme na baru, stačí zavolat.

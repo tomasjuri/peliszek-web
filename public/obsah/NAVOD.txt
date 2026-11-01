@@ -1,0 +1,76 @@
+JAK UPRAVOVAT WEB PELÍSZEK
+==========================
+
+Všechny texty na webu jsou v téhle složce. Co změníte tady, objeví se
+na webu. Nic jiného upravovat nemusíte.
+
+
+KTERÝ SOUBOR CO OBSAHUJE
+
+  akce.txt             program akcí (tohle budete měnit nejčastěji)
+  nabidka.txt          pečivo, káva a matcha na prodej, ceny
+  oteviraci-doba.txt   otevírací doba pro celý web
+  kontakt.txt          adresa, telefon, instagram, facebook
+  pro-deti.txt         modrá sekce „pro malé.“
+  uvod.txt             věta nahoře pod nápisem a popisky obrázků
+  rezervace.txt        texty u rezervačního formuláře
+
+Na začátku každého souboru je krátce popsané, co v něm je.
+
+
+PRAVIDLA
+
+1. Každý řádek začíná názvem a dvojtečkou, za ní je text:
+
+       nadpis: co chystáme.
+
+   Název před dvojtečkou nechte, jak je. Text za dvojtečkou pište
+   jakkoli. Na velkých písmenech a háčcích v názvu nezáleží,
+   „nazev:“ funguje stejně jako „název:“.
+
+2. Řádky s mřížkou # na začátku jsou poznámky. Na webu se neukážou.
+
+3. Prázdné řádky dělejte, kde chcete. Jsou jen pro přehlednost.
+
+4. Dlouhý text můžete rozdělit na víc řádků, web je spojí do jednoho
+   odstavce.
+
+5. Seznamy (akce, pečivo, káva, položky pro děti) se skládají
+   z položek. Každá začíná vždy stejným řádkem, akce třeba řádkem
+   „datum:“. Novou položku přidáte tak, že zkopírujete celý blok
+   existující položky a přepíšete ho. Smažete ji tak, že smažete
+   celý blok.
+
+6. Soubory nepřejmenovávejte, nepřesouvejte a nemažte. Web je pak
+   nenajde.
+
+
+JAK NA ÚPRAVU NA GITHUBU
+
+1. Otevřete soubor a vpravo nahoře klikněte na tužku (Edit this file).
+2. Upravte text.
+3. Klikněte na zelené tlačítko „Commit changes…“ a potom ještě
+   jednou na „Commit changes“.
+4. Zhruba za dvě minuty je změna na webu. Kdyby ji prohlížeč hned
+   neukázal, obnovte stránku.
+
+
+KDYŽ SE NĚCO POKAZÍ
+
+Než se web nahraje, soubory se samy zkontrolují. Když v nich je chyba
+(třeba datum ve špatném tvaru nebo chybějící telefon), web se nezmění,
+zůstane na něm předchozí verze, a GitHub vám pošle e-mail.
+
+Na GitHubu otevřete záložku Actions a klikněte na poslední řádek
+s červeným křížkem. Uvidíte, ve kterém souboru a na kterém řádku chyba
+je, a co s ní. Opravte ji a uložte znovu.
+
+Nic nerozbijete natrvalo. GitHub si pamatuje všechny předchozí verze
+každého souboru (tlačítko History), takže se vždycky dá vrátit zpět.
+
+
+CO TADY NENÍ
+
+Název stránky ve vyhledávání Google, vzhled webu, e-mail, kam chodí
+rezervace, a nápisy na tlačítkách. Kdybyste chtěli něco z toho změnit,
+napište správci webu.

@@ -26,12 +26,16 @@ button,input,select,textarea{font:inherit;color:inherit}
 .wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--pad)}
 .section{padding-block:clamp(64px,9vw,112px)}
 .muted{color:var(--kakao-2)}
+.nowrap{white-space:nowrap}
 .small{font-size:16px;color:var(--kakao-2)}
 .skip{position:absolute;left:-999px;top:8px;background:var(--kakao);color:var(--smetana);padding:10px 16px;border-radius:999px;z-index:50;font-family:var(--display)}
 .skip:focus{left:12px}
 :focus-visible{outline:3px solid var(--boruvka);outline-offset:3px;border-radius:6px}
 [hidden]{display:none!important}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+/* než se načte obsah ze složky obsah/ */
+main,.foot{transition:opacity .25s}
+.cekam main,.cekam .foot{opacity:0}
 
 .btn{display:inline-flex;align-items:center;justify-content:center;font:700 16px/1 var(--display);text-transform:lowercase;text-decoration:none;background:var(--boruvka);color:var(--smetana);padding:16px 24px;border-radius:999px;border:2px solid var(--boruvka);cursor:pointer;transition:background-color .2s,border-color .2s,color .2s;white-space:nowrap}
 .btn:hover{background:var(--boruvka-tma);border-color:var(--boruvka-tma)}
@@ -122,7 +126,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
 .hours{width:100%;border-collapse:collapse;font:400 18px/1.3 var(--display)}
 .hours th,.hours td{text-align:left;padding:15px 14px;border-bottom:1px solid var(--linka);font-weight:400}
-.hours td{text-align:right;font-variant-numeric:tabular-nums}
+.hours td{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
 .hours tr.today th,.hours tr.today td{background:var(--boruvka-mleko);font-weight:700;border-bottom-color:transparent}
 .hours tr.today th{border-radius:14px 0 0 14px}
 .hours tr.today td{border-radius:0 14px 14px 0}
@@ -139,6 +143,9 @@ label,.legend{font:700 15px/1.2 var(--display);text-transform:lowercase}
 input,select,textarea{font:400 17px/1.3 var(--text);color:var(--kakao);background:var(--smetana);border:1.5px solid rgba(59,42,33,.28);border-radius:14px;padding:13px 14px;width:100%;min-height:50px;appearance:none;-webkit-appearance:none}
 select{background-image:linear-gradient(45deg,transparent 50%,var(--kakao) 50%),linear-gradient(135deg,var(--kakao) 50%,transparent 50%);background-position:calc(100% - 20px) 52%,calc(100% - 14px) 52%;background-size:6px 6px;background-repeat:no-repeat;padding-right:36px}
 textarea{min-height:90px;resize:vertical}
+/* iOS jinak datum v poli centruje */
+input[type="date"]{text-align:left}
+input::-webkit-date-and-time-value{text-align:left}
 input:focus,select:focus,textarea:focus{outline:none;border-color:var(--boruvka);box-shadow:0 0 0 3px rgba(63,76,140,.25)}
 [aria-invalid="true"]{border-color:#a8452f}
 .types{grid-column:span 6;display:flex;flex-wrap:wrap;gap:8px;border:0;margin:0 0 4px;padding:0}
@@ -192,7 +199,8 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--boruvka)
   .hours th,.hours td{padding:13px 10px}
   .hero-actions .btn{flex:1 1 auto}
   .trio figcaption{font-size:13px}
-  .ev .btn{padding:10px 14px;font-size:14px}
+  .ev{grid-template-columns:1fr}
+  .ev .btn{grid-column:1;grid-row:auto;justify-self:start;margin-top:8px;padding:10px 14px;font-size:14px}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}

@@ -1,0 +1,16 @@
+# REZERVACE
+# Texty u rezervačního formuláře.
+#
+# Za úvodní text web sám přidá větu „Když to spěchá, zavolejte na …“
+# s telefonem z kontakt.txt. Časy k výběru se řídí otevírací dobou.
+#
+# Řádky s mřížkou na začátku jsou poznámky, na webu se neukážou.
+
+nadpis: rezervace.
+text: Stůl, místo na akci, oslava nebo dort na objednávku. Vyplňte, co potřebujete, a ozveme se vám.
+
+# Drobný text vedle tlačítka „odeslat žádost“.
+pod tlačítkem: Rezervaci vám potvrdíme telefonicky.
+
+# Kolik dní dopředu se musí objednat dort.
+dort předem: 3

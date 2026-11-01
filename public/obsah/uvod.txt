@@ -1,0 +1,12 @@
+# ÚVOD
+# Horní část stránky pod velkým nápisem „pelíszek.“
+#
+# Řádky s mřížkou na začátku jsou poznámky, na webu se neukážou.
+# Jak soubory upravovat, je v NAVOD.txt.
+
+podnadpis: výběrová káva, vlastní pečení a hernička na jihlavských terasách.
+
+# Popisky pod třemi obrázky, zleva doprava. Ať jsou krátké, na mobilu je málo místa.
+popisek 1: výběrová káva
+popisek 2: pečeme sami
+popisek 3: matcha

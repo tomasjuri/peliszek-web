@@ -5,30 +5,44 @@ Jednostránkový web kavárny Pelíszek. Je to čisté HTML, CSS a JavaScript be
 ## Co je uvnitř
 
 ```
-index.html            celá stránka
-css/style.css         vzhled
-js/akce.js            program akcí (tohle budete upravovat nejčastěji)
-js/main.js            otevírací doba, menu na mobilu, formulář
-rezervace.php         odeslání rezervace e-mailem
-fonts/                písma a jejich licence
-favicon.svg           ikonka v prohlížeči
-apple-touch-icon.png  ikonka po přidání webu na plochu telefonu
-robots.txt            pokyny pro vyhledávače
+public/                    to, co se nahrává na hosting
+  obsah/                   všechny texty webu v textových souborech (návod v obsah/NAVOD.txt)
+  index.html               kostra stránky
+  css/style.css            vzhled
+  js/obsah.js              načtení a kontrola souborů z obsah/
+  js/main.js               vyplnění stránky, otevírací doba, menu na mobilu, formulář
+  rezervace.php            odeslání rezervace e-mailem
+  fonts/                   písma a jejich licence
+  favicon.svg              ikonka v prohlížeči
+  apple-touch-icon.png     ikonka po přidání webu na plochu telefonu
+  robots.txt               pokyny pro vyhledávače
+scripts/kontrola-obsahu.js kontrola souborů z obsah/ před nahráním
+.github/workflows/         automatické nahrání na hosting
 ```
 
 ## Vyzkoušení na počítači
 
-Stačí otevřít `index.html` v prohlížeči. Všechno funguje kromě odeslání rezervace. To potřebuje PHP na hostingu, takže lokálně formulář ukáže hlášku, že se žádost nepodařilo odeslat.
+Texty se načítají ze složky `public/obsah/`, a to prohlížeč dovolí jen přes webový server, ne při otevření `index.html` ze souboru. Stačí:
 
-## Nahrání na hosting (např. WEDOS)
+```
+python3 -m http.server 8000 -d public
+```
 
-1. Ve správě hostingu zkontrolujte, že je zapnuté PHP (stačí jakákoli verze od 7.4 výš).
-2. Přes FTP nebo správce souborů nahrajte **obsah** složky `peliszek-web` do kořenové složky webu. U WEDOSu je to obvykle složka `www`. Soubor `index.html` musí ležet přímo v ní, ne v další podsložce.
-3. Otevřete svou doménu a zkontrolujte, že se web načte i s písmy.
+a otevřít http://localhost:8000. Všechno funguje kromě odeslání rezervace. To potřebuje PHP na hostingu.
+
+Kontrolu textů před nahráním spustíte příkazem `node scripts/kontrola-obsahu.js`.
+
+## Nahrání na hosting
+
+Po každé změně ve složce `public/` na větvi `main` GitHub Actions soubory zkontrolují a nahrají přes FTPS na hosting. Když je v textech chyba, nic se nenahraje a na webu zůstane předchozí verze.
+
+Přístup k FTP se zadává v nastavení repozitáře (Settings → Secrets and variables → Actions) jako `FTP_SERVER`, `FTP_USERNAME` a `FTP_PASSWORD`. Cílová složka je kořen FTP účtu, jinou nastavíte proměnnou `FTP_SERVER_DIR` (např. `www/`). Na hostingu musí být zapnuté PHP 7.4 nebo novější.
+
+Texty je potřeba měnit v repozitáři, ne přímo na FTP. Změny na FTP by se při dalším nahrání přepsaly.
 
 ## Nastavení rezervací
 
-Otevřete `rezervace.php` v textovém editoru a nahoře vyplňte dvě adresy:
+Otevřete `public/rezervace.php` v textovém editoru a nahoře vyplňte dvě adresy:
 
 ```php
 const PRIJEMCE   = 'rezervace@vase-domena.cz';  // kam mají žádosti chodit
@@ -41,16 +55,11 @@ Formulář má jednoduchou ochranu proti robotům (skryté pole). Kdyby přesto 
 
 ## Úpravy obsahu
 
-**Akce.** Upravte `js/akce.js`. Každá akce je jeden řádek s datem, časem, názvem a krátkou poznámkou. Proběhlé akce se schovají samy a nové se zároveň objeví ve výběru ve formuláři.
+Všechny texty, akce, nabídka, ceny, otevírací doba a kontakty jsou v textových souborech ve složce `public/obsah/`. Jak je upravovat, popisuje `public/obsah/NAVOD.txt`. Otevírací doba i telefon se zadávají jen jednou a web je použije všude, včetně údajů pro Google.
 
-**Otevírací doba** je na třech místech, změňte ji ve všech:
-- `js/main.js`, proměnná `HOURS` (podle ní web píše „teď máme otevřeno“),
-- `index.html`, tabulka v sekci „kde nás najdete.“ a patička,
-- `index.html`, blok `application/ld+json` v hlavičce (údaje pro Google).
+V `index.html` zůstávají jen věci, které se mění zřídka: název stránky a popis pro vyhledávače (`<title>`, `description`, `og:`), nápisy na tlačítkách a v menu, popisky formuláře a název a popis kavárny v bloku `application/ld+json`.
 
-**Nabídka a ceny** jsou v `index.html` v sekci „co u nás dobrého.“ Každá položka je jeden řádek `<li>`.
-
-**Texty** jsou všechny v `index.html`, stačí je přepsat.
+Nový soubor nebo nové pole se přidává do seznamu `SOUBORY` na začátku `js/obsah.js`.
 
 ## Co je potřeba doplnit nebo ověřit
 
@@ -62,7 +71,7 @@ Tyto údaje jsou zatím ukázkové:
 
 Telefon 777 289 804 je převzatý z vašeho říjnového příspěvku. Ve veřejných zápisech se objevuje i 774 139 173, tak prosím ověřte, které číslo chcete na webu.
 
-Až budete mít doménu, doplňte do hlavičky `index.html` řádek `<meta property="og:url" content="https://vase-domena.cz/">` a do bloku `application/ld+json` položku `"url": "https://vase-domena.cz/"`.
+Až budete mít doménu, doplňte do hlavičky `public/index.html` řádek `<meta property="og:url" content="https://vase-domena.cz/">` a do bloku `application/ld+json` položku `"url": "https://vase-domena.cz/"`.
 
 ## Písma
 

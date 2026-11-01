@@ -14,28 +14,18 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preload" href="fonts/peliszek-display-bold.woff" as="font" type="font/woff" crossorigin>
 <link rel="stylesheet" href="css/style.css">
-<script type="application/ld+json">
+<!-- Obsah se načítá ze složky obsah/. Do té doby je stránka skrytá, nejdéle 3 s. -->
+<script>document.documentElement.classList.add('cekam');setTimeout(function(){document.documentElement.classList.remove('cekam')},3000)</script>
+<!-- Údaje pro Google. Telefon, adresu, otevírací dobu a sociální sítě doplní js/main.js z obsahu. -->
+<script type="application/ld+json" id="ld">
 {
   "@context": "https://schema.org",
   "@type": "CafeOrCoffeeShop",
   "name": "Pelíszek",
-  "description": "Kavárna, bistro a hernička. Výběrová káva, matcha a vlastní pečení.",
-  "telephone": "+420777289804",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Srázná 4837/21",
-    "addressLocality": "Jihlava",
-    "postalCode": "586 01",
-    "addressCountry": "CZ"
-  },
-  "openingHoursSpecification": [
-    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "18:00"},
-    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday","Sunday"], "opens": "09:00", "closes": "19:00"}
-  ],
-  "sameAs": ["https://www.instagram.com/peliszek_jihlava/", "https://www.facebook.com/Kafekakaojihlava/"]
+  "description": "Kavárna, bistro a hernička. Výběrová káva, matcha a vlastní pečení."
 }
 </script>
-<script src="js/akce.js" defer></script>
+<script src="js/obsah.js" defer></script>
 <script src="js/main.js" defer></script>
 </head>
 <body>
@@ -104,7 +94,7 @@
     <h1 class="wordmark">pelíszek.</h1>
     <div class="hero-grid">
       <div>
-        <p class="hero-sub">výběrová káva, vlastní pečení a hernička na jihlavských terasách.</p>
+        <p class="hero-sub" data-obsah="uvod.podnadpis"></p>
         <div class="hero-actions">
           <a class="btn" href="#rezervace">rezervovat stůl</a>
           <a class="btn btn-ghost" href="#akce">co chystáme</a>
@@ -114,15 +104,15 @@
       <div class="trio" aria-hidden="true">
         <figure>
           <div class="arch"><svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice"><rect width="300" height="400" fill="#e9d8be"/><use href="#cup" x="8" y="120" width="300" height="254"/></svg></div>
-          <figcaption>výběrová káva</figcaption>
+          <figcaption data-obsah="uvod.popisek-1"></figcaption>
         </figure>
         <figure>
           <div class="arch"><svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice"><rect width="300" height="400" fill="#f3e2bf"/><use href="#bun" x="10" y="112" width="280" height="280"/></svg></div>
-          <figcaption>pečeme sami</figcaption>
+          <figcaption data-obsah="uvod.popisek-2"></figcaption>
         </figure>
         <figure>
           <div class="arch"><svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice"><rect width="300" height="400" fill="#e4ead2"/><use href="#matcha" x="4" y="120" width="300" height="254"/></svg></div>
-          <figcaption>matcha</figcaption>
+          <figcaption data-obsah="uvod.popisek-3"></figcaption>
         </figure>
       </div>
     </div>
@@ -131,43 +121,32 @@
   <section class="section" id="akce">
     <div class="wrap">
       <div class="head">
-        <h2>co chystáme.</h2>
-        <p>Brunche s jógou, pečení s dětmi a ochutnávky kávy. Míst bývá málo, tak se přihlaste včas.</p>
+        <h2 data-obsah="akce.nadpis"></h2>
+        <p data-obsah="akce.text"></p>
       </div>
       <ul class="events" id="events"></ul>
-      <p class="private"><span>Chcete kavárnu jen pro sebe? Narozeniny, křtiny nebo baby shower.</span> <button class="link" type="button" data-form="oslava">domluvit oslavu</button></p>
+      <p class="private"><span data-obsah="akce.oslavy"></span> <button class="link" type="button" data-form="oslava">domluvit oslavu</button></p>
     </div>
   </section>
 
   <section class="section" id="nabidka" style="padding-top:0">
     <div class="wrap">
       <div class="head">
-        <h2>co u nás dobrého.</h2>
-        <p>Kafe? Máme. Matchu? Máme. Buchtu od Žanet? Taky.</p>
+        <h2 data-obsah="nabidka.nadpis"></h2>
+        <p data-obsah="nabidka.text"></p>
       </div>
       <div class="offer">
         <div>
-          <h3>pečeme sami</h3>
-          <p>Většinu sladkého peče naše Žanet, každý den trochu něco jiného. Dorty na zakázku dělá pečeTe, perníčky Cukrová víla.</p>
-          <ul class="counter">
-            <li><span class="item">skořicoví šneci</span><span class="dots"></span><span class="who">Žanet</span></li>
-            <li><span class="item">švestkový koláč s drobenkou</span><span class="dots"></span><span class="who">Žanet</span></li>
-            <li><span class="item">mrkvový dort</span><span class="dots"></span><span class="who">Žanet</span></li>
-            <li><span class="item">dortíky a zákusky</span><span class="dots"></span><span class="who">pečeTe</span></li>
-            <li><span class="item">perníčky</span><span class="dots"></span><span class="who">Cukrová víla</span></li>
-          </ul>
+          <h3 data-obsah="nabidka.peceni-nadpis"></h3>
+          <p data-obsah="nabidka.peceni-text"></p>
+          <ul class="counter" id="pecivo"></ul>
           <button class="link" type="button" data-form="dort">objednat dort</button>
         </div>
         <div>
-          <h3>káva a matcha</h3>
-          <p class="bar"><b>na baru:</b> espresso, cappuccino, flat white, filtr na V60, matcha latte, čistá matcha a chai latte.</p>
-          <ul class="counter">
-            <li><span class="item">etiopie guji<span class="sub">filtr; jahoda, bergamot, med</span></span><span class="dots"></span><span class="who">360 Kč</span></li>
-            <li><span class="item">kolumbie huila<span class="sub">espresso i filtr; karamel, jablko, kakao</span></span><span class="dots"></span><span class="who">340 Kč</span></li>
-            <li><span class="item">brazílie cerrado<span class="sub">espresso; čokoláda, lískový oříšek</span></span><span class="dots"></span><span class="who">290 Kč</span></li>
-            <li><span class="item">ceremoniální matcha<span class="sub">Japonsko, 30 g</span></span><span class="dots"></span><span class="who">590 Kč</span></li>
-          </ul>
-          <p class="small">Kávu prodáváme po 250 g. Balíček vám rádi podržíme na baru, stačí zavolat.</p>
+          <h3 data-obsah="nabidka.kava-nadpis"></h3>
+          <p class="bar"><b>na baru:</b> <span data-obsah="nabidka.na-baru"></span></p>
+          <ul class="counter" id="prodej"></ul>
+          <p class="small" data-obsah="nabidka.poznamka"></p>
         </div>
       </div>
     </div>
@@ -177,32 +156,24 @@
     <div class="wrap male-grid">
       <div class="arch" aria-hidden="true"><svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice"><rect width="300" height="400" fill="#dde0f0"/><use href="#baby" x="10" y="130" width="300" height="261"/></svg></div>
       <div>
-        <h2>pro malé.</h2>
-        <p class="lede">dětská káva? jasně. v hrnečku, jako mají rodiče.</p>
-        <ul>
-          <li><span><b>babyccino</b> našlehané mléko s kakaem a marshmallow, bez kávy.</span></li>
-          <li><span><b>malé porce</b> dětské kakao a brunch v dětské velikosti.</span></li>
-          <li><span><b>hernička</b> hrací koutek na dohled od stolu, na brunchových akcích v ceně.</span></li>
-        </ul>
+        <h2 data-obsah="pro-deti.nadpis"></h2>
+        <p class="lede" data-obsah="pro-deti.text"></p>
+        <ul id="pro-male"></ul>
       </div>
     </div>
   </section>
 
   <section class="section" id="kontakt">
     <div class="wrap">
-      <h2>kde nás najdete.</h2>
+      <h2 data-obsah="kontakt.nadpis"></h2>
       <div class="kontakt-grid">
         <div>
-          <address>Jihlavské Terasy<br>Srázná 4837/21<br>586 01 Jihlava</address>
-          <a class="tel" href="tel:+420777289804">777 289 804</a>
-          <p class="small">Napsat nám můžete i na <a href="https://www.instagram.com/peliszek_jihlava/" target="_blank" rel="noopener">instagram</a> nebo <a href="https://www.facebook.com/Kafekakaojihlava/" target="_blank" rel="noopener">facebook</a>.</p>
-          <div class="btns"><a class="btn btn-ghost" href="https://mapy.cz/zakladni?q=Sr%C3%A1zn%C3%A1%204837%2F21%2C%20Jihlava" target="_blank" rel="noopener">navigovat</a></div>
+          <address id="adresa"></address>
+          <a class="tel" data-tel></a>
+          <p class="small" id="site"></p>
+          <div class="btns"><a class="btn btn-ghost" id="mapa" target="_blank" rel="noopener">navigovat</a></div>
         </div>
-        <table class="hours"><tbody>
-          <tr data-days="1"><th scope="row">pondělí</th><td>zavřeno</td></tr>
-          <tr data-days="2,3,4,5"><th scope="row">úterý až pátek</th><td>9:00–18:00</td></tr>
-          <tr data-days="6,0"><th scope="row">sobota a neděle</th><td>9:00–19:00</td></tr>
-        </tbody></table>
+        <table class="hours"><tbody id="hodiny"></tbody></table>
       </div>
     </div>
   </section>
@@ -211,8 +182,8 @@
     <div class="wrap">
       <div class="rez">
         <div class="rez-intro">
-          <h2>rezervace.</h2>
-          <p>Stůl, místo na akci, oslava nebo dort na objednávku. Vyplňte, co potřebujete, a ozveme se vám. Když to spěchá, zavolejte na <a href="tel:+420777289804">777 289 804</a>.</p>
+          <h2 data-obsah="rezervace.nadpis"></h2>
+          <p><span data-obsah="rezervace.text"></span> Když to spěchá, zavolejte na <a data-tel></a>.</p>
         </div>
         <form id="rez-form" novalidate>
           <fieldset class="types">
@@ -235,7 +206,7 @@
           <div class="hp" aria-hidden="true"><label for="web">nevyplňujte</label><input id="web" name="web" type="text" tabindex="-1" autocomplete="off"></div>
           <div class="submit">
             <button class="btn" type="submit">odeslat žádost</button>
-            <p class="small" id="form-msg" aria-live="polite">Rezervaci vám potvrdíme telefonicky.</p>
+            <p class="small" id="form-msg" aria-live="polite" data-obsah="rezervace.pod-tlacitkem"></p>
           </div>
           <div class="done" id="done" hidden tabindex="-1">
             <h3>žádost máme.</h3>
@@ -253,18 +224,16 @@
     <div class="foot-grid">
       <div>
         <a class="logo" href="#obsah">pelíszek.</a>
-        <p>kavárna, bistro a hernička<br>Srázná 4837/21, Jihlava</p>
+        <p><span data-obsah="kontakt.paticka"></span><br><span id="adresa-kratka"></span></p>
       </div>
       <div>
         <h3>otevřeno</h3>
-        <p>út–pá 9:00–18:00<br>so–ne 9:00–19:00<br>pondělí zavřeno</p>
+        <p id="hodiny-kratce"></p>
       </div>
       <div>
         <h3>ozvěte se</h3>
-        <ul>
-          <li><a href="tel:+420777289804">777 289 804</a></li>
-          <li><a href="https://www.instagram.com/peliszek_jihlava/" target="_blank" rel="noopener">instagram</a></li>
-          <li><a href="https://www.facebook.com/Kafekakaojihlava/" target="_blank" rel="noopener">facebook</a></li>
+        <ul id="odkazy">
+          <li><a data-tel></a></li>
         </ul>
       </div>
     </div>

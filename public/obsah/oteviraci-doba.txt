@@ -1,0 +1,16 @@
+# OTEVÍRACÍ DOBA
+# Platí pro celý web: tabulku u kontaktu, patičku, hlášku „teď máme otevřeno“
+# nahoře, časy v rezervačním formuláři i údaje pro Google.
+#
+# Ke každému dni napište čas od–do, např. 9:00–18:00 (stačí i 9–18),
+# nebo slovo zavřeno. Dny se stejnou dobou web spojí sám („úterý až pátek“).
+#
+# Řádky s mřížkou na začátku jsou poznámky, na webu se neukážou.
+
+pondělí: zavřeno
+úterý: 9:00–18:00
+středa: 9:00–18:00
+čtvrtek: 9:00–18:00
+pátek: 9:00–18:00
+sobota: 9:00–19:00
+neděle: 9:00–19:00

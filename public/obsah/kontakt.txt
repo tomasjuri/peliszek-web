@@ -1,0 +1,23 @@
+# KONTAKT
+# Sekce „kde nás najdete.“, patička a údaje pro Google.
+#
+# Řádky s mřížkou na začátku jsou poznámky, na webu se neukážou.
+# Jak soubory upravovat, je v NAVOD.txt.
+
+nadpis: kde nás najdete.
+
+# Adresa. Podle ulice a města se vytvoří i odkaz „navigovat“ na Mapy.cz.
+místo: Jihlavské Terasy
+ulice: Srázná 4837/21
+psč: 586 01
+město: Jihlava
+
+# Telefon se použije všude na webu, i v rezervačním formuláři.
+telefon: 777 289 804
+
+# Celé odkazy na profily. Když text za dvojtečkou smažete, odkaz z webu zmizí.
+instagram: https://www.instagram.com/peliszek_jihlava/
+facebook: https://www.facebook.com/Kafekakaojihlava/
+
+# Krátký popis v patičce pod logem.
+patička: kavárna, bistro a hernička

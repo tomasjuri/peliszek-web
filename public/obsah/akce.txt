@@ -1,0 +1,54 @@
+# AKCE
+# Sekce „co chystáme.“ s programem akcí. Tenhle soubor budete měnit nejčastěji.
+#
+# Řádky s mřížkou na začátku jsou poznámky, na webu se neukážou.
+# Jak soubory upravovat, je v NAVOD.txt.
+
+nadpis: co chystáme.
+text: Brunche s jógou, pečení s dětmi a ochutnávky kávy. Míst bývá málo, tak se přihlaste včas.
+
+# Věta pod programem, vedle odkazu „domluvit oslavu“.
+oslavy: Chcete kavárnu jen pro sebe? Narozeniny, křtiny nebo baby shower.
+
+# Co se ukáže, když žádná akce není naplánovaná.
+bez akcí: Nové akce chystáme, novinky dáváme na instagram.
+
+# ---------------------------------------------------------------
+# PROGRAM
+#
+# Každá akce začíná řádkem „datum:“, pod ním jsou čas, název a info.
+#   datum:  den, měsíc a rok, např. 7. 11. 2026
+#   čas:    jak se má zobrazit, např. 9:00–14:00
+#   název:  název akce (malými písmeny, jako zbytek webu)
+#   info:   krátký doplněk: co je v ceně, kolik je míst…
+#
+# Novou akci přidáte tak, že zkopírujete celý blok čtyř řádků a přepíšete ho.
+# Pořadí nevadí, web si akce seřadí podle data sám.
+# Proběhlé akce se samy schovají, mazat je nemusíte.
+# Každá akce se zároveň objeví ve výběru v rezervačním formuláři.
+# ---------------------------------------------------------------
+
+datum: 7. 11. 2026
+čas: 9:00–14:00
+název: jóga, pilates a brunch
+info: lekce, brunch a hernička pro děti v ceně, 15 míst
+
+datum: 11. 11. 2026
+čas: 15:30–17:00
+název: svatomartinské rohlíčky s dětmi
+info: pečeme se Žanet, 10 dětí
+
+datum: 21. 11. 2026
+čas: 10:00–11:30
+název: ochutnávka výběrové kávy
+info: tři kávy vedle sebe, 12 míst
+
+datum: 29. 11. 2026
+čas: 14:00–16:00
+název: adventní zdobení perníčků
+info: perníčky od Cukrové víly, 14 dětí
+
+datum: 3. 12. 2026
+čas: 18:00–19:30
+název: matcha doma: jak na to
+info: šlehání metličkou a matcha latte, 10 míst
