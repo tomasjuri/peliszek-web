@@ -1,13 +1,12 @@
 name: Deploy web
 
 on:
-  # Off while the site is on GitHub Pages (pages.yml). For WEDOS, uncomment this and disable pages.yml.
-  # push:
-  #   branches: [main]
-  #   paths:
-  #     - 'public/**'
-  #     - 'scripts/**'
-  #     - '.github/workflows/deploy.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'public/**'
+      - 'scripts/**'
+      - '.github/workflows/deploy.yml'
   workflow_dispatch:
 
 concurrency:
@@ -24,11 +23,20 @@ jobs:
       - name: Check content files
         run: node scripts/kontrola-obsahu.js
 
+      # With placeholder addresses the form would report success while bookings go nowhere.
       - name: Check reservation e-mails are configured
         run: |
           if grep -q 'vase-domena.cz' public/rezervace.php; then
-            echo "::warning file=public/rezervace.php::Placeholder e-mail addresses are still set, reservations will not arrive."
+            echo "::error file=public/rezervace.php::Placeholder e-mail addresses are still set, reservations would be lost."
+            exit 1
           fi
+
+      # noindex keeps the site, with its sample prices, out of search results until the content is final.
+      - name: Prepare site
+        run: |
+          mkdir _site
+          cp -R public/. _site/
+          sed -i 's|<head>|<head>\n<meta name="robots" content="noindex">|' _site/index.html
 
       # Uploads only changed files and never deletes anything it did not upload itself.
       - name: Upload over FTP
@@ -38,6 +46,6 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
-          local-dir: ./public/
+          local-dir: ./_site/
           # The FTP account's home is the www folder. Set FTP_SERVER_DIR to 'www/' if you use the main account instead.
           server-dir: ${{ vars.FTP_SERVER_DIR || './' }}

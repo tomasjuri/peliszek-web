@@ -1,13 +1,13 @@
 name: Publish to GitHub Pages
 
-# Temporary preview until the site moves to WEDOS (deploy.yml).
+# Off since the site moved to WEDOS (deploy.yml). For a Pages preview again, uncomment this and disable deploy.yml.
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'public/**'
-      - 'scripts/**'
-      - '.github/workflows/pages.yml'
+  # push:
+  #   branches: [main]
+  #   paths:
+  #     - 'public/**'
+  #     - 'scripts/**'
+  #     - '.github/workflows/pages.yml'
   workflow_dispatch:
 
 permissions:

@@ -9,7 +9,7 @@
                 jinak e-maily končí ve spamu nebo se vůbec neodešlou.
 */
 const PRIJEMCE   = 'rezervace@vase-domena.cz';
-const ODESILATEL = 'web@vase-domena.cz';
+const ODESILATEL = 'web@peliszek.cz';
 
 date_default_timezone_set('Europe/Prague');
 header('Content-Type: application/json; charset=utf-8');
